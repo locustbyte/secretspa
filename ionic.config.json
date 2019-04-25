@@ -1,0 +1,7 @@
+{
+  "name": "secretspa",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

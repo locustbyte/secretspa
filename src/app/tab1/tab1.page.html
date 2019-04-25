@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Current Weather in {{ weatherData.title }}, {{ weatherData.parent.title }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+          <ion-label>Select City</ion-label>
+          <ion-select [(ngModel)]="emp" interface="popover" (ionChange)="onCitySelect($event.detail.value.title)">          
+              <ion-select-option *ngFor="let city of weatherLocation" [value]=city>{{ city.title }}</ion-select-option>
+           </ion-select>
+        </ion-item>
+      </ion-list>
+    <ion-row>
+      <ion-col size="12" size-sm *ngFor="let weather of weatherData.consolidated_weather">
+        <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle><img src="/assets/weather_icons/{{ weather.weather_state_abbr }}.svg" style="width: 20%;" />{{ weather.weather_state_name }}</ion-card-subtitle>
+              <ion-card-title>{{ weather.applicable_date | date: 'EEEE, MMM d, y'}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-content>
