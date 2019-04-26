@@ -28,6 +28,7 @@ export class Tab1Page {
     this.initializeApp();
   }
 
+  // Usually would create a service for the next 3 funtions.
   searchCity(searchString){
     console.log(searchString)
     this.http.get('https://www.metaweather.com/api/location/search/?query='+searchString, {}, {})
@@ -37,6 +38,7 @@ export class Tab1Page {
       })
       .catch(error => {
 
+        // Error handling
         console.log(error.status);
         console.log(error.error); // error message as string
         console.log(error.headers);
@@ -56,7 +58,8 @@ export class Tab1Page {
 
       })
       .catch(error => {
-
+        
+        // Error handling
         console.log(error.status);
         console.log(error.error); // error message as string
         console.log(error.headers);
@@ -76,7 +79,7 @@ export class Tab1Page {
 
       })
       .catch(error => {
-
+        // Error handling
         console.log(error.status);
         console.log(error.error); // error message as string
         console.log(error.headers);
@@ -85,7 +88,7 @@ export class Tab1Page {
   }
 
 
-  onCitySelect(city){
+  onCitySelect( city ){
     this.loading = true;
     // Set title of select label
     this.currCity = city.title;
@@ -95,12 +98,14 @@ export class Tab1Page {
     this.searchQuery = "";
 
     // Pass city id to api call to update weather
-    this.getWeather(city.woeid)
+    this.getWeather( city.woeid )
   }
 
   
   
   submitSearch(city) {
+
+    // Call function to search for cities matching string
     this.searchCity(this.searchQuery);
   }
   initializeApp() {
