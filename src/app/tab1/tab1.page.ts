@@ -11,6 +11,7 @@ import { HTTP } from '@ionic-native/http/ngx';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  loading = true;
   searchQuery = "";
   currLat;
   currLon;
@@ -70,6 +71,7 @@ export class Tab1Page {
         // JSON parse string data in response from server
         this.cityData = JSON.parse(data['data']);
         this.currCity = this.cityData['title'];
+        this.loading = false;
 
 
       })
@@ -84,6 +86,7 @@ export class Tab1Page {
 
 
   onCitySelect(city){
+    this.loading = true;
     // Set title of select label
     this.currCity = city.title;
 
@@ -101,7 +104,7 @@ export class Tab1Page {
     this.searchCity(this.searchQuery);
   }
   initializeApp() {
-
+    this.loading = true;
   // This will get the current position to be used for localised weather
   this.geolocation.getCurrentPosition().then((resp) => {
     this.currLat = resp.coords.latitude;

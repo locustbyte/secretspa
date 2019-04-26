@@ -5,8 +5,10 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
+<div class="loading-pane hide" [ngClass]="{'show-loading': loading==true}">
+    <ion-spinner name="crescent"></ion-spinner>
+</div>
+<ion-content overflow-scroll='true'>
   <ion-list *ngIf="searchCitiesSelect.length == 0">
     <ion-item>
       <ion-label>{{currCity}}</ion-label>

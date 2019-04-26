@@ -11,3 +11,22 @@
     }
   }
 }
+
+.loading-pane{
+  position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    ion-spinner{
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+}
+
+.hide{
+  display: none;
+}
+.show-loading{
+  display: block !important;
+}
