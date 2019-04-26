@@ -9,6 +9,12 @@
     <ion-spinner name="crescent"></ion-spinner>
 </div>
 <ion-content overflow-scroll='true'>
+    <ion-toolbar no-border-top no-border-bottom>
+        <form (ngSubmit)="submitSearch($event)">
+          <ion-searchbar name="test" placeholder="Search City / Country" (ionClear)="searchCitiesSelect = []" [(ngModel)]="searchQuery">
+          </ion-searchbar>
+        </form>
+      </ion-toolbar>
   <ion-list *ngIf="searchCitiesSelect.length == 0">
     <ion-item>
       <ion-label>{{currCity}}</ion-label>
@@ -53,11 +59,3 @@
     </ion-col>
   </ion-row>
 </ion-content>
-<ion-footer>
-  <ion-toolbar no-border-top no-border-bottom>
-    <form (ngSubmit)="submitSearch($event)">
-      <ion-searchbar name="test" placeholder="Search City / Country" (ionClear)="searchCitiesSelect = []" [(ngModel)]="searchQuery">
-      </ion-searchbar>
-    </form>
-  </ion-toolbar>
-</ion-footer>
